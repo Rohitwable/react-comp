@@ -6,15 +6,29 @@ import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends React.Component {
   // return React.createElement('div', { className: "App" }, React.createElement('h1', null, "First React app"));
-  state = {
-    persons: [
-      { id: '1', name: "person1", age: "20" },
-      { id: '2', name: "person2", age: "23" },
-      { id: '3', name: "person3", age: "44" },
-    ],
-    untouched: "this will not effect",
-    showPersons: false,
+  constructor(props) {
+    super(props);
+    console.log("app.js constructor");
+    this.state = {
+      persons: [
+        { id: '1', name: "person1", age: "20" },
+        { id: '2', name: "person2", age: "23" },
+        { id: '3', name: "person3", age: "44" },
+      ],
+      untouched: "this will not effect",
+      showPersons: false,
+    }
   }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("app.js getDerivedStateFromprops", props);
+    return state;
+  }
+
+  componentDidMount() {
+    console.log("app.js componentDidMount")
+  }
+
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
@@ -45,6 +59,7 @@ class App extends React.Component {
     this.setState({ persons: this.state.persons });
   }
   render() {
+    console.log("app.js render");
     let persons = null;
     if (this.state.showPersons) {
       persons = <div>
@@ -59,6 +74,7 @@ class App extends React.Component {
     }
     return (
       <div className="App">
+        <h1>{this.props.appTitle}</h1>
         <Cockpit
           clicked={this.togglePersonsHandler}
           persons={this.state.persons}

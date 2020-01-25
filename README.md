@@ -111,3 +111,20 @@ user to manipulate the state object
 FUNCTIONAL VS CLASS
 FUNCTIONAL are pure component- does not contain state, life cycle methods, before v16.3
 
+COMPONENT LIFECYCLE
+this methods only available in class based components
+
+COMPONENT CREATION
+1. constructor- is not lifecycle method but it received props of the component using super(props)
+we use it for basic initialization / setting initial state
+don't do - sending http req/ using local storage 
+2. getDerivedStateFromProps()- added in react 16.3
+whenever props changes for class based component sync state with respect to props
+ehenever props changes of the component we need to update internal state of the component
+don't do- send http req
+3. render()- returns jsx/ prepare the layout 
+don't do - send http request
+4. then renders child components -their lifecycle methods
+5. componentDidMount()- we use it for making http req to get data
+ 
+
