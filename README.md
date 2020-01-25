@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Notes
+REACT
+Javascript library for building user interfaces
+Runs on the browser without waiting for the server
+it's all about building components and reusing them
+
+SPA VS MULTIPAGE
+SPA- get single html page by the server then everything managed by the javascript
+MULTIPAGE - get back multiple html pages
+
+ALTERNATIVES
+Angular/ vue js/ backbone / React
+
+BUILD WORKFLOW
+webpack-bundles the files we can do build steps before bundling
+babel-does compilation of ES6 feature to ES5
