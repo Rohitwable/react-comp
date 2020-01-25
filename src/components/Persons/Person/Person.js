@@ -1,6 +1,7 @@
 import React from 'react';
 import './Person.css'
 import withClassHoc from '../../hoc/withClassHoc';
+import PropTypes from 'prop-types';
 //ES5 function declaration
 // function person (){
 
@@ -19,6 +20,12 @@ const person = (props) => {
             <input type="text" onChange={props.changed} value={props.name} />
         </React.Fragment>
     )
+}
+person.propTypes = {
+    name: PropTypes.string.isRequired,
+    click: PropTypes.func,
+    age: PropTypes.string.isRequired,
+    changed: PropTypes.func,
 }
 export default withClassHoc(person, "Person");
 
