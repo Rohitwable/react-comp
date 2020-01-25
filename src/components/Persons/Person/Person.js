@@ -1,5 +1,6 @@
 import React from 'react';
 import './Person.css'
+import withClassHoc from '../../hoc/withClassHoc';
 //ES5 function declaration
 // function person (){
 
@@ -12,13 +13,13 @@ import './Person.css'
 
 const person = (props) => {
     return (
-        <div className="Person">
+        <React.Fragment>
             <p onClick={props.clicked}>I am {props.name} and {props.age} years old.</p>
             <p>{props.children}</p>
             <input type="text" onChange={props.changed} value={props.name} />
-        </div>
+        </React.Fragment>
     )
 }
-export default person;
+export default withClassHoc(person, "Person");
 
 
