@@ -154,3 +154,8 @@ we can use multiple useEffect , to control behaviour of multiple call to useEffe
 for cleanup return anonymous function in useEffect function
 cleanup function with no second argument will cause to run for every update cycle
 
+REACT.MEMO
+this technique is used for performance optimization in functinal component
+React.memo() is wrap around export of component
+It will re-render when it's / component's input changes
+

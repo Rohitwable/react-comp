@@ -82,7 +82,7 @@ class App extends React.Component {
         <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
         {this.state.showCockpit ? <Cockpit
           clicked={this.togglePersonsHandler}
-          persons={this.state.persons}
+          personsLength={this.state.persons.length}
         />
           : ''}
         {persons}
