@@ -143,3 +143,13 @@ e.g. getting the current scrolling position
 6. componentDidUpdate()- it checks whether component done it's updation
 don't do- http req/ don not enter infinite loop
 
+USEEFFECT-
+useEffect()-class based life cycle hooks cover by this hook
+this is react hook and not life cycle hook
+we can use it in functional component
+componentDidMount()- componentDidUpdate() we can cover in this hook
+getDerivedStateFromProps()- not coverd by this hook
+useEffect hook runs all the time
+we can use multiple useEffect , to control behaviour of multiple call to useEffect we can use array as second argument as data which we want to watch for the changes
+
+

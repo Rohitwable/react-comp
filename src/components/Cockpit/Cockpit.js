@@ -1,7 +1,18 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import './Cockpit.css';
 
-const cockpit = (props) => {
+const Cockpit = (props) => {
+    useEffect(() => {
+        console.log('cockpit.js useeffect');
+        //http request
+
+        setTimeout(() => {
+            alert('saved data');
+        }, 1000);
+        //it'll execute every time if we ignore second argument
+        //if we use empty array then it renders for very first time only
+        //for componentDidMount() use with empty array
+    }, [props.persons]);
     const style = {
         backgroundColor: "white",
         font: "inherit",
@@ -24,4 +35,4 @@ const cockpit = (props) => {
     )
 }
 
-export default cockpit;
+export default Cockpit;
