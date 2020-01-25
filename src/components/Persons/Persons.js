@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Person from './Person/Person';
 
-class Persons extends React.Component {
-    shouldComponentUpdate(nextProps, nextState) {
-        if (nextProps.persons !== this.props.persons) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+class Persons extends PureComponent {
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     if (nextProps.persons !== this.props.persons) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
     render() {
         console.log("person.js render");
         return this.props.persons.map((value, index) =>
