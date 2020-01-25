@@ -104,3 +104,10 @@ data managed from outside
 
 STATE{object}
 data managed inside component
+
+SETSTATE()-
+user to manipulate the state object
+
+FUNCTIONAL VS CLASS
+FUNCTIONAL are pure component- does not contain state, life cycle methods, before v16.3
+
