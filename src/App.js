@@ -50,17 +50,14 @@ class App extends React.Component {
         <button style={style} onClick={this.togglePersonsHandler}>Switch name</button>
         {this.state.showPersons ?
           <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-              clicked={() => this.switchNameHandler("person")} />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}>Hobbies: Racing</Person>
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age}
-              changed={this.nameChangeHandler} />
+            {this.state.persons.map((value, index) => (
+              <Person
+                key={index}
+                name={value.name}
+                age={value.age}
+                clicked={() => this.switchNameHandler("person")}
+                changed={this.nameChangeHandler} />
+            ))}
           </div>
           : ''}
       </div>
