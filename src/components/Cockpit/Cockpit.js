@@ -6,13 +6,15 @@ const Cockpit = (props) => {
         console.log('cockpit.js useeffect');
         //http request
 
-        setTimeout(() => {
-            console.log('saved data');
+        //it will alert if we does not remove cockpit / if we remove then timeout will never alert / the component cleanup takes place
+        const timer = setTimeout(() => {
+            alert('saved data');
         }, 1000);
         //it'll execute every time if we ignore second argument
         //if we use empty array then it renders for very first time only
         //for componentDidMount() use with empty array
         return () => {
+            clearTimeout(timer);
             console.log("cockpit.js cleanup");
         }
     }, [props.persons]);
