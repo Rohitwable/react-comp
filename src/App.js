@@ -36,6 +36,10 @@ class App extends React.Component {
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons })
   }
+  deletePersonHandler = (index) => {
+    this.state.persons.splice(index, 1);
+    this.setState({ persons: this.state.persons });
+  }
   render() {
     const style = {
       backgroundColor: "white",
@@ -55,7 +59,7 @@ class App extends React.Component {
                 key={index}
                 name={value.name}
                 age={value.age}
-                clicked={() => this.switchNameHandler("person")}
+                clicked={() => this.deletePersonHandler(index)}
                 changed={this.nameChangeHandler} />
             ))}
           </div>
