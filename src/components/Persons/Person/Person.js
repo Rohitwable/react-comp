@@ -13,9 +13,14 @@ import PropTypes from 'prop-types';
 // }
 
 class Person extends React.Component {
+    constructor(props) {
+        super(props);
+        this.inputElementRef = React.createRef();
+    }
     componentDidMount() {
         // document.querySelector('input').focus();
-        this.inputElement.focus();
+        // this.inputElement.focus();
+        this.inputElementRef.current.focus();
     }
     render() {
         return (
@@ -26,7 +31,8 @@ class Person extends React.Component {
                     type="text"
                     onChange={this.props.changed}
                     value={this.props.name}
-                    ref={(inputEl) => { this.inputElement = inputEl }}
+                    // ref={(inputEl) => { this.inputElement = inputEl }}
+                    ref={this.inputElementRef}
                 />
             </React.Fragment>
         )
