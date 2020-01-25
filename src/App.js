@@ -9,10 +9,18 @@ class App extends React.Component {
       { name: "person1", age: "20" },
       { name: "person2", age: "23" },
       { name: "person3", age: "44" },
-    ]
+    ],
+    untouched: "this will not effect"
   }
   switchNameHandler = () => {
-    alert('btn clicked');
+    this.setState({
+      persons: [
+        { name: "person4", age: "33" },
+        { name: "person1", age: "20" },
+        { name: "person2", age: "23" },
+        { name: "person3", age: "44" },
+      ]
+    })
   }
   render() {
     return (
