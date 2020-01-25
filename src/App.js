@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Person from './Person/Person';
-
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 class App extends React.Component {
   // return React.createElement('div', { className: "App" }, React.createElement('h1', null, "First React app"));
   state = {
@@ -27,7 +27,6 @@ class App extends React.Component {
     const personIndex = this.state.persons.findIndex((value) => {
       return value.id === id;
     })
-    alert(personIndex);
     const person = { ...this.state.persons[personIndex] }
     person.name = event.target.value;
     const persons = [...this.state.persons];
@@ -55,12 +54,14 @@ class App extends React.Component {
     if (this.state.showPersons) {
       persons = <div>
         {this.state.persons.map((value, index) => (
-          <Person
-            key={index}
-            name={value.name}
-            age={value.age}
-            clicked={() => this.deletePersonHandler(index)}
-            changed={(event) => this.nameChangeHandler(event, value.id)} />
+          <ErrorBoundary key={index}
+          >
+            <Person
+              name={value.name}
+              age={value.age}
+              clicked={() => this.deletePersonHandler(index)}
+              changed={(event) => this.nameChangeHandler(event, value.id)} />
+          </ErrorBoundary>
         ))}
       </div>
       style.backgroundColor = "red";
