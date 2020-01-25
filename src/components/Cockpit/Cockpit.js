@@ -7,11 +7,14 @@ const Cockpit = (props) => {
         //http request
 
         setTimeout(() => {
-            alert('saved data');
+            console.log('saved data');
         }, 1000);
         //it'll execute every time if we ignore second argument
         //if we use empty array then it renders for very first time only
         //for componentDidMount() use with empty array
+        return () => {
+            console.log("cockpit.js cleanup");
+        }
     }, [props.persons]);
     const style = {
         backgroundColor: "white",

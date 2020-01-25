@@ -17,6 +17,7 @@ class App extends React.Component {
       ],
       untouched: "this will not effect",
       showPersons: false,
+      showCockpit: true,
     }
   }
 
@@ -29,6 +30,9 @@ class App extends React.Component {
     console.log("app.js componentDidMount")
   }
 
+  componentWillUnmount() {
+    console.log('app.js componentWillUnmount');
+  }
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
@@ -75,10 +79,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>{this.props.appTitle}</h1>
-        <Cockpit
+        <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
+        {this.state.showCockpit ? <Cockpit
           clicked={this.togglePersonsHandler}
           persons={this.state.persons}
         />
+          : ''}
         {persons}
       </div>
     )

@@ -151,5 +151,6 @@ componentDidMount()- componentDidUpdate() we can cover in this hook
 getDerivedStateFromProps()- not coverd by this hook
 useEffect hook runs all the time
 we can use multiple useEffect , to control behaviour of multiple call to useEffect we can use array as second argument as data which we want to watch for the changes
-
+for cleanup return anonymous function in useEffect function
+cleanup function with no second argument will cause to run for every update cycle
 
