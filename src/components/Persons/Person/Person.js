@@ -12,21 +12,32 @@ import PropTypes from 'prop-types';
 
 // }
 
-const person = (props) => {
-    return (
-        <React.Fragment>
-            <p onClick={props.clicked}>I am {props.name} and {props.age} years old.</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name} />
-        </React.Fragment>
-    )
+class Person extends React.Component {
+    componentDidMount() {
+        // document.querySelector('input').focus();
+        this.inputElement.focus();
+    }
+    render() {
+        return (
+            <React.Fragment>
+                <p onClick={this.props.clicked}>I am {this.props.name} and {this.props.age} years old.</p>
+                <p>{this.props.children}</p>
+                <input
+                    type="text"
+                    onChange={this.props.changed}
+                    value={this.props.name}
+                    ref={(inputEl) => { this.inputElement = inputEl }}
+                />
+            </React.Fragment>
+        )
+    }
 }
-person.propTypes = {
+Person.propTypes = {
     name: PropTypes.string.isRequired,
     click: PropTypes.func,
     age: PropTypes.string.isRequired,
     changed: PropTypes.func,
 }
-export default withClassHoc(person, "Person");
+export default withClassHoc(Person, "Person");
 
 
