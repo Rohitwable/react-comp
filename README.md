@@ -97,3 +97,10 @@ jsx has one root element
 
 FUNCTIONAL COMPONENT
 is just a javascript function that returns jsx
+
+PROPS{object}
+pass data from parent component to child 
+data managed from outside
+
+STATE{object}
+data managed inside component
