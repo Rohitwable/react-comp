@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
-import Cockpit from '../components/Cockpit/Cockpit'
+import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../components/hoc/WithClass';
 
 class App extends React.Component {
   // return React.createElement('div', { className: "App" }, React.createElement('h1', null, "First React app"));
@@ -77,7 +78,7 @@ class App extends React.Component {
       </div>
     }
     return (
-      <div className="App">
+      <WithClass classes="App">
         <h1>{this.props.appTitle}</h1>
         <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
         {this.state.showCockpit ? <Cockpit
@@ -86,7 +87,7 @@ class App extends React.Component {
         />
           : ''}
         {persons}
-      </div>
+      </WithClass>
     )
   }
 }
