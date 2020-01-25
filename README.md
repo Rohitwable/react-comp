@@ -92,3 +92,8 @@ children- what nest inside the element
 JSX is equivalent to call React.createElement()
 
 JSX RESTRICTIONS
+can not use reserved javascript keywords e.g. class
+jsx has one root element
+
+FUNCTIONAL COMPONENT
+is just a javascript function that returns jsx
