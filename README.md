@@ -83,3 +83,12 @@ Angular/ vue js/ backbone / React
 BUILD WORKFLOW
 webpack-bundles the files we can do build steps before bundling
 babel-does compilation of ES6 feature to ES5
+
+JSX-
+React.createElement(element, configuration, children )- 
+element- element want to render to the dom/ e.g. div, custom component
+configuration- props 
+children- what nest inside the element
+JSX is equivalent to call React.createElement()
+
+JSX RESTRICTIONS
