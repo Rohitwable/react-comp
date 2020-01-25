@@ -1,7 +1,8 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useRef } from 'react';
 import './Cockpit.css';
 
 const Cockpit = (props) => {
+    const btnToggleRef = useRef(null);
     useEffect(() => {
         console.log('cockpit.js useeffect');
         //http request
@@ -35,7 +36,7 @@ const Cockpit = (props) => {
     return (
         <Fragment>
             <p className={classes.join(' ')}>App component</p>
-            <button style={style} onClick={props.clicked}>Switch name</button>
+            <button ref={btnToggleRef} style={style} onClick={props.clicked}>Switch name</button>
         </Fragment>
     )
 }
