@@ -126,5 +126,20 @@ don't do- send http req
 don't do - send http request
 4. then renders child components -their lifecycle methods
 5. componentDidMount()- we use it for making http req to get data
- 
+
+
+COMPONENT UPDATE- 
+whenever props / state changes component updates
+1. getDerivedStateFromProps()- we get the updated props when component updates
+sync local state of component with receiving props
+don't - http call
+2. shouldComponentUpdate()- can cancel the updating process
+prevent the unnecessary update calls 
+3. render()-
+4. renders child components
+5. getSnapshotBeforeUpdate()- takes prv props and prv state as input and returns snapshot object
+we use it for last minute dom operations
+e.g. getting the current scrolling position
+6. componentDidUpdate()- it checks whether component done it's updation
+don't do- http req/ don not enter infinite loop
 
