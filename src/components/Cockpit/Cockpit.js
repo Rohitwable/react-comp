@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect, useRef } from 'react';
+import React, { Fragment, useEffect, useRef, useContext } from 'react';
 import './Cockpit.css';
 import AuthContext from '../../context/auth-context';
 
 const Cockpit = (props) => {
     const btnToggleRef = useRef(null);
+    const context = useContext(AuthContext);
+    console.log(context.authenticated);
     useEffect(() => {
         console.log('cockpit.js useeffect');
         btnToggleRef.current.click();
@@ -39,9 +41,10 @@ const Cockpit = (props) => {
         <Fragment>
             <p className={classes.join(' ')}>App component</p>
             <button ref={btnToggleRef} style={style} onClick={props.clicked}>Switch name</button>
-            <AuthContext.Consumer>
+            {/* <AuthContext.Consumer>
                 {context => <button onClick={context.login}>Log in</button>}
-            </AuthContext.Consumer>
+            </AuthContext.Consumer> */}
+            {<button onClick={context.login}>Log in</button>}
         </Fragment>
     )
 }
