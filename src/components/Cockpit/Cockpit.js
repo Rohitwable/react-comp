@@ -5,6 +5,7 @@ const Cockpit = (props) => {
     const btnToggleRef = useRef(null);
     useEffect(() => {
         console.log('cockpit.js useeffect');
+        btnToggleRef.current.click();
         //http request
 
         //it will alert if we does not remove cockpit / if we remove then timeout will never alert / the component cleanup takes place
@@ -37,6 +38,7 @@ const Cockpit = (props) => {
         <Fragment>
             <p className={classes.join(' ')}>App component</p>
             <button ref={btnToggleRef} style={style} onClick={props.clicked}>Switch name</button>
+            <button onClick={props.login}>Log in</button>
         </Fragment>
     )
 }
