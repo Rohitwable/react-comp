@@ -159,3 +159,15 @@ this technique is used for performance optimization in functinal component
 React.memo() is wrap around export of component
 It will re-render when it's / component's input changes
 
+REFS-
+class component uses createRef() method of react to create the ref and pass to the element
+functional component uses useRef hook to create ref
+
+CONTEXT-
+class component uses createContext() method of react to create context passed with default values
+then it passed as <Provider> component 
+then it accessed using <Consumer> component with context as object like prop
+
+static contextType()- it does job as <Consumer> 
+it allow us to access to the context in places like componentDidMount();
+
