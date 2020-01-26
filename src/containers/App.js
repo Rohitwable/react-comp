@@ -3,7 +3,8 @@ import './App.css';
 import Persons from '../components/Persons/Persons';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
 import Cockpit from '../components/Cockpit/Cockpit';
-import WithClass from '../components/hoc/WithClass';
+import WithClass from '../hoc/WithClass';
+import AuthContext from '../context/auth-context';
 
 class App extends React.Component {
   // return React.createElement('div', { className: "App" }, React.createElement('h1', null, "First React app"));
@@ -91,13 +92,14 @@ class App extends React.Component {
       <WithClass classes="App">
         <h1>{this.props.appTitle}</h1>
         <button onClick={() => { this.setState({ showCockpit: false }) }}>Remove Cockpit</button>
-        {this.state.showCockpit ? <Cockpit
-          clicked={this.togglePersonsHandler}
-          personsLength={this.state.persons.length}
-          login={this.loginHandler}
-        />
-          : ''}
-        {persons}
+        <AuthContext.Provider value={{ authenticated: this.state.authenticated, login: this.loginHandler }}>
+          {this.state.showCockpit ? <Cockpit
+            clicked={this.togglePersonsHandler}
+            personsLength={this.state.persons.length}
+          />
+            : ''}
+          {persons}
+        </AuthContext.Provider>
       </WithClass>
     )
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 import './Person.css'
-import withClassHoc from '../../hoc/withClassHoc';
+import withClassHoc from '../../../hoc/withClassHoc';
 import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context';
 //ES5 function declaration
 // function person (){
 
@@ -25,7 +26,9 @@ class Person extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {this.props.isAuth ? <p>Authenticated</p> : <p>Please Log in</p>}
+                <AuthContext.Consumer>
+                    {context => context.authenticated ? <p>Authenticated</p> : <p>Please Log in</p>}
+                </AuthContext.Consumer>
                 <p onClick={this.props.clicked}>I am {this.props.name} and {this.props.age} years old.</p>
                 <p>{this.props.children}</p>
                 <input
@@ -36,6 +39,7 @@ class Person extends React.Component {
                     ref={this.inputElementRef}
                 />
             </React.Fragment>
+
         )
     }
 }
